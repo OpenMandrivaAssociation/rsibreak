@@ -6,6 +6,7 @@ License:        GPL
 Group:          Graphical desktop/KDE
 URL:            http://www.rsibreak.org
 Source0:        http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Patch0:         rsibreak-0.9.0-fix-cmake.patch
 BuildRoot:      %_tmppath/%name-%version-%release-buildroot
 BuildRequires:  kdelibs4-devel
 Requires:   kdebase4-runtime
@@ -24,7 +25,6 @@ you to take a break now and then.
 %_kde_datadir/applications/kde4/rsibreak.desktop
 %_kde_datadir/dbus-1/interfaces/org.rsibreak.rsiwidget.xml
 %_kde_docdir/HTML/*/rsibreak
-
 
 #-----------------------------------------------------------------------------
 
@@ -66,6 +66,7 @@ Plasma engine for rsibreak
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 
