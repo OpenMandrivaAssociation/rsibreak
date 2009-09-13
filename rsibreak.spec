@@ -1,11 +1,12 @@
 Name:           rsibreak
 Version:        0.10
 Summary:        Assists in the Recovery and Prevention of Repetitive Strain Injury
-Release:        %mkrel 1
-License:        GPL
+Release:        %mkrel 2
+License:        GPLv2
 Group:          Graphical desktop/KDE
 URL:            http://www.rsibreak.org
 Source0:        http://www.rsibreak.org/files/%{name}-%{version}.tar.bz2
+Patch0:         plasma-applet-rsibreak-fix-categories.patch
 BuildRoot:      %_tmppath/%name-%version-%release-buildroot
 BuildRequires:  kdelibs4-devel
 Requires:   kdebase4-runtime
@@ -18,7 +19,7 @@ you to take a break now and then.
 %files  -f %name.lang
 %defattr(-,root,root)
 %_kde_bindir/%name
-%_kde_appsdir/rsibreak/rsibreak.notifyrc               
+%_kde_appsdir/rsibreak/rsibreak.notifyrc
 %_kde_datadir/autostart/rsibreak.desktop
 %_kde_iconsdir/hicolor/*/*/*
 %_kde_datadir/applications/kde4/rsibreak.desktop
@@ -39,12 +40,11 @@ Conflicts:  kdebase4-workspace < 2:4.1.80-6
 %description -n plasma-applet-rsibreak
 Plasma applet for rsibreak
 
-%files -n plasma-applet-rsibreak
+%files -n plasma-applet-rsibreak -f plasma_applet_rsibreak.lang
 %defattr(-,root,root)
-%{_kde_datadir}/kde4/services/plasma-applet-rsibreak.desktop
-%{_kde_libdir}/kde4/plasma_applet_rsibreak.so
+%_kde_services/plasma-applet-rsibreak.desktop
+%_kde_libdir/kde4/plasma_applet_rsibreak.so
 %_kde_appsdir/desktoptheme/default/widgets/rsibreak.svg
-%{_kde_datadir}/locale/*/LC_MESSAGES/plasma_applet_rsibreak.mo
 
 #--------------------------------------------------------------------
 
@@ -58,27 +58,26 @@ Plasma engine for rsibreak
 
 %files -n plasma-engine-rsibreak
 %defattr(-,root,root)
-%{_kde_datadir}/kde4/services/plasma-engine-rsibreak.desktop
-%{_kde_libdir}/kde4/plasma_engine_rsibreak.so
+%_kde_services/plasma-engine-rsibreak.desktop
+%_kde_libdir/kde4/plasma_engine_rsibreak.so
 
 #--------------------------------------------------------------------
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
-
 %cmake_kde4
 %make
 
-
 %install
-rm -rf %buildroot
-cd build
-make DESTDIR=%buildroot install
-cd ..
-%{find_lang} %name
+%__rm -rf %{buildroot}
+%{makeinstall_std} -C build
+
+%{find_lang} %{name}
+%{find_lang} plasma_applet_rsibreak
 
 %clean
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 
