@@ -78,3 +78,33 @@ Plasma engine for rsibreak
 %clean
 %__rm -rf %{buildroot}
 
+
+
+%changelog
+* Wed Feb 01 2012 Andrey Bondrov <abondrov@mandriva.org> 0.11-1
++ Revision: 770416
+- New version 0.11
+
+  + John Balcaen <mikala@mandriva.org>
+    - Fix applet category
+    - clean spec
+
+* Sun Jul 19 2009 Frederik Himpe <fhimpe@mandriva.org> 0.10-1mdv2010.0
++ Revision: 397929
+- Update to new version 0.10
+- Remove cmake patch which is not needed anymore
+
+* Sun Mar 15 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 0.9.0-3mdv2009.1
++ Revision: 355556
+- Fix build  against new KDE4
+- Rebuild against new KDE4
+
+* Mon Dec 22 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 0.9.0-2mdv2009.1
++ Revision: 317691
+- Rebuild against kde 4.1.85
+
+* Fri Nov 28 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 0.9.0-1mdv2009.1
++ Revision: 307336
+- import rsibreak
+
+
