@@ -1,7 +1,7 @@
 Name:		rsibreak
 Version:	0.11
 Summary:	Assists in the Recovery and Prevention of Repetitive Strain Injury
-Release:	%mkrel 1
+Release:	2
 License:	GPLv2
 Group:		Graphical desktop/KDE
 URL:		http://www.rsibreak.org
