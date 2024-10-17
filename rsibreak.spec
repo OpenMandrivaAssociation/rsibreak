@@ -4,7 +4,7 @@ Summary:	Assists in the Recovery and Prevention of Repetitive Strain Injury
 Release:	1
 License:	GPLv2
 Group:		Graphical desktop/KDE
-URL:		http://www.rsibreak.org
+URL:		https://www.rsibreak.org
 Source0:	http://www.rsibreak.org/files/%{name}-%{version}.tar.xz
 BuildRequires: cmake(ECM)
 BuildRequires: cmake(Qt5Core)
